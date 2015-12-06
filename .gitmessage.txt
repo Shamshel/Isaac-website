@@ -1,0 +1,3 @@
+subject line [50 or less chars]
+
+what happened [75 chars per line]
