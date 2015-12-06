@@ -4,3 +4,4 @@ IsaacVenv
 db.sqlite3
 /static
 .DS_Store
+.gitmessage.txt

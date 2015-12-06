@@ -1,10 +1,12 @@
 from django.conf.urls import include, url
+from django.shortcuts import render
 from django.contrib import admin
 
-urlpatterns = [
-    # Examples:
-    # url(r'^$', 'Isaac_website.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+from . import views
 
-    url(r'^admin/', include(admin.site.urls)),
+urlpatterns = [
+	url(r'^$', views.index, name='post_list'),
+	url(r'^admin/', include(admin.site.urls)),
+	url(r'^posts/', include('Blogs.urls')),
+
 ]
