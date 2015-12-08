@@ -106,3 +106,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
 	'/usr/share/nginx/www/static/'
 ]
+
+MEDIA_ROOT='/home/cody/Isaac-website/media/'
+MEDIA_URL='/media/'

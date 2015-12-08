@@ -7,7 +7,7 @@ from .models import Post
 
 def post_list(request):
 	posts = Post.objects.filter(published=True).order_by('-published_date')[:5]
-	return render(request, 'Blogs/post_list.html', { 'posts':posts })
+	return render(request, 'Blogs/index.html', { 'posts':posts })
 
 def detail(request, post_id):
 	post = get_object_or_404(Post, pk=post_id)
