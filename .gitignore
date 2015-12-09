@@ -3,6 +3,6 @@
 __pycache__
 IsaacVenv
 db.sqlite3
-/static
+media/
 .DS_Store
 .gitmessage.txt

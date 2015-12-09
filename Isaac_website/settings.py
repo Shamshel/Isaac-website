@@ -56,7 +56,7 @@ ROOT_URLCONF = 'Isaac_website.urls'
 TEMPLATES = [
 	{
 		'BACKEND': 'django.template.backends.django.DjangoTemplates',
-		'DIRS': [ 'Isaac_website/templates/' ],
+		'DIRS': [ 'Isaac_website/templates/', 'templates/' ],
 		'APP_DIRS': True,
 		'OPTIONS': {
 			'context_processors': [
@@ -68,6 +68,16 @@ TEMPLATES = [
 		},
 	},
 ]
+
+#TEMPLATE_DIRS = (
+#	os.path.join(BASE_DIR, 'templates'),
+
+#)
+
+#TEMPLATE_CONTEXT_PROCESSORS=(
+#	'django.core.contex_processors.static',
+
+#)
 
 WSGI_APPLICATION = 'Isaac_website.wsgi.application'
 
@@ -83,6 +93,20 @@ DATABASES = {
 }
 
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.8/howto/static-files/
+
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+	os.path.join(BASE_DIR, 'static'),
+]
+STATIC_URL = '/static/'
+
+# Media files (files specific to the content of the pages)
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -95,17 +119,3 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-STATICFILES_DIRS = [
-	'/usr/share/nginx/www/static/'
-]
-
-MEDIA_ROOT='/home/cody/Isaac-website/media/'
-MEDIA_URL='/media/'

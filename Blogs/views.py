@@ -9,10 +9,10 @@ def post_list(request):
 	posts = Post.objects.filter(published=True).order_by('-published_date')[:5]
 	return render(request, 'Blogs/index.html', { 'posts':posts })
 
-def detail(request, post_id):
+def post_detail(request, post_id):
 	post = get_object_or_404(Post, pk=post_id)
 
 	if post.published is False:
 		raise Http404("Post is not yet published or does not exist.")
 
-	return render(request, 'Blogs/post.html', { 'post':post })
+	return render(request, 'Blogs/post_detail.html', { 'post':post })
