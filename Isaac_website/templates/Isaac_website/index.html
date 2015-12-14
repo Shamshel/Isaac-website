@@ -1,19 +1,39 @@
 {% include "header.html" %}
-
     <!-- Page Content -->
     <div class="container">
+	<div="row">
+        	<div class="col-md-8">
 
-	<div class="row">
-		<div class="col-lg-12 text-center">
-		{% for post in posts %}
-			<div>
-				<h1><a href="#">{{ post.title }}</a></h1>
-				<p class="lead">published: {{ post.published_date }}</p>
-				<p>{{ post.text|linebreaks }}</p>
+                	<h1 class="page-header">
+	                    Latest Post
+        	        </h1>
 
-			</div>
 
-		{% endfor %}
+			{% for post in posts %}
+			<h2>
+        	            <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+	                </h2>
+        	        <p class="lead">
+	                    by <a>{{ post.author }}</a>
+	                </p>
+	                <p><span class="glyphicon glyphicon-time"></span> {{ post.published_date }}</p>
+
+			{% if post.image %}
+	                <hr>
+        	        <img class="img-responsive" src="{{ post.image.url }}" alt="http://placehold.it/900x300">
+			{% endif %}
+
+			<hr>
+
+	                <p class="lead">{{ post.abstract }}</p>
+
+	                <hr>
+	                <a class="btn btn-primary" href="{% url 'post_detail' post.pk %}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+	                <hr>
+
+			{% endfor %}
+
 		</div>
 	</div>
 	

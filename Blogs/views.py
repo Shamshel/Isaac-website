@@ -5,9 +5,19 @@ from django.utils import timezone
 
 from .models import Post
 
-def post_list(request):
-	posts = Post.objects.filter(published=True).order_by('-published_date')[:5]
-	return render(request, 'Blogs/index.html', { 'posts':posts })
+def post_list(request, page=0):
+	start = int(page)*5
+	stop = start+4
+	next_page = int(page)-1
+
+	if stop < Post.objects.count():
+		prev_page = int(page)+1
+
+	else:
+		prev_page = -1
+
+	posts = Post.objects.filter(published=True).order_by('-published_date')[start:stop]
+	return render(request, 'Blogs/index.html', { 'posts':posts, 'page':page, 'next_page':next_page, 'prev_page':prev_page })
 
 def post_detail(request, post_id):
 	post = get_object_or_404(Post, pk=post_id)

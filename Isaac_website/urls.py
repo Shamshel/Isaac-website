@@ -8,7 +8,7 @@ from . import views
 from . import settings
 
 urlpatterns = [
-	url(r'^$', views.index, name='post_list'),
+	url(r'^$', views.index, name='index'),
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^posts/', include('Blogs.urls')),
 

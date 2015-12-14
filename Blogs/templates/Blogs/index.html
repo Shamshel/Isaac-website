@@ -8,8 +8,7 @@
             <div class="col-md-8">
 
                 <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
+                    Recent Posts
                 </h1>
 
 		{% for post in posts %}
@@ -39,15 +38,21 @@
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="previous">
-                        <a href="#">&larr; Older</a>
+			{% if prev_page > 0 %}
+                        <a href="{% url 'post_page' prev_page %}">&larr; Older</a>
+			{% endif %}
                     </li>
                     <li class="next">
-                        <a href="#">Newer &rarr;</a>
+			{% if next_page == 0 %}
+                        <a href="{% url 'post_list' %}">Newer &rarr;</a>
+			{% elif next_page > 0 %}
+                        <a href="{% url 'post_page' next_page %}">Newer &rarr;</a>
+			{% endif %}
                     </li>
                 </ul>
 
             </div>
-
+{% comment %}
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
 
@@ -104,6 +109,8 @@
                     <h4>Side Widget Well</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
                 </div>
+
+{% endcomment %}
 
             </div>
 
