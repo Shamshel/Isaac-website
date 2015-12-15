@@ -4,7 +4,7 @@ from django.utils import timezone
 import os
 
 def get_image_path(instance, filename):
-	return os.path.join(str(instance.id), filename)
+	return os.path.join('post_media', str(instance.id), filename)
 
 class Post(models.Model):
 	# Post data

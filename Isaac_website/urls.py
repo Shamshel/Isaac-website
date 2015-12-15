@@ -10,7 +10,9 @@ from . import settings
 urlpatterns = [
 	url(r'^$', views.index, name='index'),
 	url(r'^admin/', include(admin.site.urls)),
-	url(r'^posts/', include('Blogs.urls')),
+	url(r'^posts/', include('Blog.urls')),
+	url(r'^portfolio/', include('Portfolio.urls')),
+	url(r'^contact/', include('Contact.urls'))
 
 ]
 

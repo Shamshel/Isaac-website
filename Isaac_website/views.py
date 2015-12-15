@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from Blogs.models import Post
+from Blog.models import Post
 
 def index(request):
 	posts = Post.objects.filter(published=True).order_by('-published_date')[:1]

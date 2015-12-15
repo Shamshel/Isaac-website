@@ -1,8 +1,11 @@
 *.pyc
 *.swp
-__pycache__
+__*
 IsaacVenv
 db.sqlite3
-media/
+media
+Blog/migrations
+Portfolio/migrations
+Contact/migrations
 .DS_Store
 .gitmessage.txt

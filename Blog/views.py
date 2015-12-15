@@ -7,7 +7,7 @@ from .models import Post
 
 def post_list(request, page=0):
 	start = int(page)*5
-	stop = start+4
+	stop = start+5
 	next_page = int(page)-1
 
 	if stop < Post.objects.count():

@@ -1,45 +1,43 @@
 {% include "header.html" %}
     <!-- Page Content -->
-    <div class="container">
-	<div="row">
-        	<div class="col-md-8">
+	<div class="container">
+		<div="row">
+			<div class="col-md-8">
 
-                	<h1 class="page-header">
-	                    Latest Post
-        	        </h1>
+                		<h1 class="page-header">
+		                    Latest Post
+	        	        </h1>
 
 
-			{% for post in posts %}
-			<h2>
-        	            <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
-	                </h2>
-        	        <p class="lead">
-	                    by <a>{{ post.author }}</a>
-	                </p>
-	                <p><span class="glyphicon glyphicon-time"></span> {{ post.published_date }}</p>
+				{% for post in posts %}
+				<h2>
+        		            <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+		                </h2>
+	        	        <p class="lead">
+		                    by <a>{{ post.author }}</a>
+		                </p>
+		                <p><span class="glyphicon glyphicon-time"></span> {{ post.published_date }}</p>
 
-			{% if post.image %}
-	                <hr>
-        	        <img class="img-responsive" src="{{ post.image.url }}" alt="http://placehold.it/900x300">
-			{% endif %}
+				{% if post.image %}
+		                <hr>
+	        	        <img class="img-responsive" src="{{ post.image.url }}" alt="http://placehold.it/900x300">
+				{% endif %}
 
-			<hr>
+				<hr>
 
-	                <p class="lead">{{ post.abstract }}</p>
+		                <p class="lead">{{ post.abstract }}</p>
 
-	                <hr>
-	                <a class="btn btn-primary" href="{% url 'post_detail' post.pk %}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+		                <hr>
+		                <a class="btn btn-primary" href="{% url 'post_detail' post.pk %}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
-	                <hr>
+		                <hr>
+				{% endfor %}
 
-			{% endfor %}
-
+			</div>
+			<!-- /.col -->
 		</div>
+        	<!-- /.row -->
 	</div>
-	
-        <!-- /.row -->
-
-    </div>
-    <!-- /.container -->
+	<!-- /.container -->
 
 {% include "footer.html" %}
