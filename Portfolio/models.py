@@ -11,9 +11,10 @@ class Project(models.Model):
 	author = models.ForeignKey('auth.User')
 	title = models.CharField(max_length=200)
 	abstract = models.CharField(max_length=200, blank=True, null=True)
-	text = models.TextField()
+	text = models.TextField(help_text="Text can contain HTML tags (and scripts, be careful).")
 	link = models.CharField(max_length=200, blank=True, null=True)
-	image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
+	thumbnail = models.ImageField(upload_to=get_image_path, blank=True, null=True, help_text="Thumbnail should be 700x300 (7:3). Thumbnail will be used in portfolio listing. If blank, the image will be used.")
+	image = models.ImageField(upload_to=get_image_path, blank=True, null=True, help_text="Image should be 750x300 (15:10). Image will be used in portfolio detail.")
 
 	# Project metadata
 	created_date = models.DateTimeField(default=timezone.now)

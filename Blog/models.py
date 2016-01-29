@@ -9,10 +9,10 @@ def get_image_path(instance, filename):
 class Post(models.Model):
 	# Post data
 	author = models.ForeignKey('auth.User')
-	title = models.CharField(max_length=200)
-	abstract = models.CharField(max_length=200, blank=True, null=True)
-	text = models.TextField()
-	image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
+	title = models.CharField(max_length=100)
+	abstract = models.CharField(max_length=500, blank=True, null=True)
+	text = models.TextField(help_text="Text can contain HTML tags (and scripts, be careful).")
+	image = models.ImageField(upload_to=get_image_path, blank=True, null=True, help_text="Image should be 900x300 (3:1).")
 
 	# Post metadata
 	created_date = models.DateTimeField(default=timezone.now)

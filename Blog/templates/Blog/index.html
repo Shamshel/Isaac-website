@@ -1,9 +1,10 @@
 {% include "header.html" %}
 	<div class="container">
 		<div class="row">
+			<!-- Blog Entries Column -->
 			<div class="col-md-8">
 				<h1 class="page-header">
-					Latest Post
+					Recent Posts
 				</h1>
 				{% for post in posts %}
 				<h2>
@@ -12,7 +13,9 @@
 				<p class="lead">
 					by <a>{{ post.author }}</a>
 				</p>
-				<p><span class="glyphicon glyphicon-time"></span> {{ post.published_date }}</p>
+				<p>
+					<span class="glyphicon glyphicon-time"></span> {{ post.published_date }}
+				</p>
 				{% if post.image %}
 				<hr>
 				<img class="img-responsive" src="{{ post.image.url }}" alt="http://placehold.it/900x300">
@@ -22,9 +25,25 @@
 				<hr>
 				<a class="btn btn-primary" href="{% url 'post_detail' post.pk %}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 				<hr>
-				{% endfor %}
+				{% endfor %} 
+				<!-- Pager -->
+				<ul class="pager">
+					<li class="previous">
+					{% if next_page == 0 %}
+					<a href="{% url 'post_list' %}">&larr; Newer</a>
+					{% elif next_page > 0 %}
+					<a href="{% url 'post_page' next_page %}">&larr; Newer</a>
+					{% endif %}
+					</li>
+					<li class="next">
+					{% if prev_page > 0 %}
+					<a href="{% url 'post_page' prev_page %}">Older &rarr;</a>
+					{% endif %}
+					</li>
+				</ul>
+				<hr>
 			</div>
-			<!-- /.col -->
+			<!-- /.col-lg-6 -->
 		</div>
 		<!-- /.row -->
 	</div>

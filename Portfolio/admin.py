@@ -5,7 +5,7 @@ class ProjectAdmin(admin.ModelAdmin):
 	list_display = ('title', 'created_date', 'published')
 
 	fieldsets = [
-		(None, {'fields':['author', 'title', 'link', 'abstract', 'text', 'image']}),
+		(None, {'fields':['author', 'title', 'link', 'abstract', 'text', 'image', 'thumbnail']}),
 		('Publishing Information', {'fields':['created_date', 'published', 'published_date', 'modified_date']}),
 	]
 	list_filter = ['created_date', 'published']

@@ -17,7 +17,7 @@ def post_list(request, page=0):
 		prev_page = -1
 
 	posts = Post.objects.filter(published=True).order_by('-published_date')[start:stop]
-	return render(request, 'Blogs/index.html', { 'posts':posts, 'page':page, 'next_page':next_page, 'prev_page':prev_page })
+	return render(request, 'Blog/index.html', { 'posts':posts, 'page':page, 'next_page':next_page, 'prev_page':prev_page })
 
 def post_detail(request, post_id):
 	post = get_object_or_404(Post, pk=post_id)
@@ -25,4 +25,4 @@ def post_detail(request, post_id):
 	if post.published is False:
 		raise Http404("Post is not yet published or does not exist.")
 
-	return render(request, 'Blogs/post_detail.html', { 'post':post })
+	return render(request, 'Blog/post_detail.html', { 'post':post })
